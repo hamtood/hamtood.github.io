@@ -5,80 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AFUT - Association Franco-Ukrainienne de Tourves</title>
 <style>
-  /* базовые стили */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #e6f0fa; /* светло-голубой фон */
-    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    background: #d9e9ff; /* чуть светлее голубой */
+    color: #000;
+    font-weight: 700;
   }
-  /* контейнер страницы */
+
+  /* контейнер */
   .container {
     max-width: 900px;
-    margin: 40px auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 20px 30px;
+    margin: 60px auto 40px auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    padding: 40px 50px 60px 50px;
+    position: relative;
   }
 
-  /* меню */
-  nav {
-    background: #0055b8; /* синий */
-    border-radius: 10px 10px 0 0;
-    padding: 12px 20px;
-  }
-  nav ul {
-    list-style: none;
-    margin: 0; padding: 0;
+  /* боковая панель меню */
+  .sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #005bbb; /* насыщенный синий */
+    border-radius: 16px;
+    padding: 15px 20px;
     display: flex;
-    gap: 30px;
-  }
-  nav ul li {
-    color: #f7d54e; /* жёлтый */
-    font-weight: bold;
-    cursor: default; /* не кликабельно */
+    align-items: center;
+    gap: 12px;
+    cursor: default;
+    user-select: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
 
-  /* Заголовок */
+  /* гамбургер: три полоски */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+
+  /* три точки справа */
+  .dots {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .dots span {
+    width: 5px;
+    height: 5px;
+    background: #ffd700; /* яркий жёлтый для акцента */
+    border-radius: 50%;
+  }
+
   h1 {
-    color: #0055b8; /* синий */
     margin-top: 0;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0.05em;
   }
 
-  /* Основной текст */
   p {
-    font-size: 1.1em;
+    font-size: 1.3rem;
     line-height: 1.5;
-    color: #004080; /* темно-голубой */
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    font-weight: 700;
   }
 
-  /* Нижний футер */
   footer {
     text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #888;
+    padding: 25px 0;
+    color: #555;
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      margin: 40px 20px 40px 20px;
+      padding: 30px 25px 50px 25px;
+    }
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.1rem;
+      max-width: 100%;
+    }
+    .sidebar {
+      padding: 12px 15px;
+      gap: 8px;
+      top: 10px;
+      left: 10px;
+    }
+    .hamburger span {
+      width: 20px;
+      height: 2.5px;
+    }
+    .dots span {
+      width: 4px;
+      height: 4px;
+    }
   }
 </style>
 </head>
 <body>
-  <div class="container">
-    <nav>
-      <ul>
-        <li>Accueil</li>
-        <li>À propos</li>
-        <li>Événements</li>
-        <li>Nous rejoindre</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
+  <div class="sidebar" aria-label="Menu">
+    <div class="hamburger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="dots" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 
+  <div class="container">
     <h1>AFUT</h1>
     <p>Association Franco-Ukrainienne de Tourves</p>
-    <p>Bienvenue sur notre site officiel. Ce site est en construction.</p>
+    <p>Bienvenue sur notre site offici
 
-    <footer>© 2025 AFUT — Tous droits réservés</footer>
-  </div>
-</body>
-</html>
