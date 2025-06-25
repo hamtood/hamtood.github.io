@@ -1,142 +1,203 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AFUT - Association Franco-Ukrainienne de Tourves</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AFUT - Association Franco-Ukrainienne de Tourves</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #d9e9ff; /* чуть светлее голубой */
-    color: #000;
-    font-weight: 700;
-  }
-
-  /* контейнер */
-  .container {
-    max-width: 900px;
-    margin: 60px auto 40px auto;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    padding: 40px 50px 60px 50px;
-    position: relative;
-  }
-
-  /* боковая панель меню */
-  .sidebar {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #005bbb; /* насыщенный синий */
-    border-radius: 16px;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: default;
-    user-select: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  /* гамбургер: три полоски */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .hamburger span {
-    width: 24px;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-  }
-
-  /* три точки справа */
-  .dots {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .dots span {
-    width: 5px;
-    height: 5px;
-    background: #ffd700; /* яркий жёлтый для акцента */
-    border-radius: 50%;
-  }
-
-  h1 {
-    margin-top: 0;
-    font-size: 3rem;
-    text-align: center;
-    font-weight: 900;
-    letter-spacing: 0.05em;
-  }
-
-  p {
-    font-size: 1.3rem;
-    line-height: 1.5;
-    max-width: 700px;
-    margin: 20px auto 0 auto;
-    text-align: center;
-    font-weight: 700;
-  }
-
-  footer {
-    text-align: center;
-    padding: 25px 0;
-    color: #555;
-    font-weight: 600;
-  }
-
-  @media (max-width: 600px) {
-    .container {
-      margin: 40px 20px 40px 20px;
-      padding: 30px 25px 50px 25px;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #d9e9ff;
+      color: #000;
+      font-weight: 700;
     }
-    h1 {
-      font-size: 2.2rem;
-    }
-    p {
-      font-size: 1.1rem;
-      max-width: 100%;
-    }
+
     .sidebar {
-      padding: 12px 15px;
-      gap: 8px;
-      top: 10px;
-      left: 10px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #005bbb;
+      border-radius: 16px;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
     .hamburger span {
-      width: 20px;
-      height: 2.5px;
+      width: 24px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+    .dots {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
     .dots span {
-      width: 4px;
-      height: 4px;
+      width: 5px;
+      height: 5px;
+      background: #ffd700;
+      border-radius: 50%;
     }
-  }
-</style>
+
+    .language {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .language img {
+      width: 18px;
+      height: 12px;
+      border-radius: 2px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 120px auto 40px auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 40px 50px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.3rem;
+      color: #003974;
+    }
+
+    .slider {
+      max-width: 900px;
+      margin: 30px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slides img {
+      width: 900px;
+      height: 500px;
+      object-fit: cover;
+    }
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.7);
+      border: none;
+      font-size: 2rem;
+      padding: 5px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0;
+      color: #555;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 100px 20px 30px 20px;
+        padding: 30px 25px;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+      .slides img {
+        width: 100vw;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="sidebar" aria-label="Menu">
-    <div class="hamburger" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
+
+  <div class="sidebar">
+    <div class="dots">
+      <span></span><span></span><span></span>
     </div>
-    <div class="dots" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
     </div>
+  </div>
+
+  <div class="language">
+    <img src="https://flagcdn.com/fr.svg" alt="fr">
+    <span>FR ▾</span>
   </div>
 
   <div class="container">
     <h1>AFUT</h1>
     <p>Association Franco-Ukrainienne de Tourves</p>
-    <p>Bienvenue sur notre site offici
+    <p>Bienvenue sur notre site officiel. Ce site est en construction.</p>
+  </div>
 
+  <div class="slider">
+    <div class="slides" id="slideTrack">
+      <img src="Снимок экрана 2025-06-25 195331.png" alt="poster1" />
+      <img src="Снимок экрана 2025-06-25 195446.png" alt="poster2" />
+      <img src="Снимок экрана 2025-06-25 195526.png" alt="poster3" />
+      <img src="Снимок экрана 2025-06-25 195558.png" alt="poster4" />
+    </div>
+    <button class="prev" onclick="prevSlide()">‹</button>
+    <button class="next" onclick="nextSlide()">›</button>
+  </div>
+
+  <footer>© 2025 AFUT — Tous droits réservés</footer>
+
+  <script>
+    let index = 0;
+    function showSlide() {
+      const track = document.getElementById('slideTrack');
+      track.style.transform = `translateX(${-index * 900}px)`;
+    }
+    function nextSlide() {
+      index = (index + 1) % 4;
+      showSlide();
+    }
+    function prevSlide() {
+      index = (index - 1 + 4) % 4;
+      showSlide();
+    }
+  </script>
+
+</body>
+</html>
