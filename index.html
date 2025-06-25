@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AFUT - Association Franco-Ukrainienne de Tourves</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'UnifrakturCook', cursive;
       background: #d9e9ff;
       color: #000;
       font-weight: 700;
@@ -21,19 +21,19 @@
       left: 20px;
       background: #005bbb;
       border-radius: 16px;
-      padding: 15px 20px;
+      padding: 10px 14px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     .hamburger {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 3px;
     }
     .hamburger span {
-      width: 24px;
+      width: 20px;
       height: 3px;
       background: white;
       border-radius: 2px;
@@ -41,7 +41,7 @@
     .dots {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
     }
     .dots span {
       width: 5px;
@@ -78,11 +78,13 @@
       padding: 40px 50px;
       text-align: center;
     }
-    h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 10px;
+
+    .logo {
+      max-width: 280px;
+      height: auto;
+      margin-bottom: 15px;
     }
+
     p {
       font-size: 1.3rem;
       color: #003974;
@@ -135,12 +137,6 @@
         margin: 100px 20px 30px 20px;
         padding: 30px 25px;
       }
-      h1 {
-        font-size: 2.2rem;
-      }
-      p {
-        font-size: 1.1rem;
-      }
       .slides img {
         width: 100vw;
         height: auto;
@@ -150,6 +146,7 @@
 </head>
 <body>
 
+  <!-- меню -->
   <div class="sidebar">
     <div class="dots">
       <span></span><span></span><span></span>
@@ -159,23 +156,26 @@
     </div>
   </div>
 
+  <!-- язык -->
   <div class="language">
     <img src="https://flagcdn.com/fr.svg" alt="fr">
     <span>FR ▾</span>
   </div>
 
+  <!-- основной блок -->
   <div class="container">
-    <h1>AFUT</h1>
+    <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
     <p>Association Franco-Ukrainienne de Tourves</p>
     <p>Bienvenue sur notre site officiel. Ce site est en construction.</p>
   </div>
 
+  <!-- слайдер -->
   <div class="slider">
     <div class="slides" id="slideTrack">
-      <img src="Снимок экрана 2025-06-25 195331.png" alt="poster1" />
+      <img src="Снимок экрана 2025-06-25 195558.png" alt="poster4" />
       <img src="Снимок экрана 2025-06-25 195446.png" alt="poster2" />
       <img src="Снимок экрана 2025-06-25 195526.png" alt="poster3" />
-      <img src="Снимок экрана 2025-06-25 195558.png" alt="poster4" />
+      <img src="Снимок экрана 2025-06-25 195331.png" alt="poster1" />
     </div>
     <button class="prev" onclick="prevSlide()">‹</button>
     <button class="next" onclick="nextSlide()">›</button>
