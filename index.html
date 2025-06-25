@@ -5,49 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AFUT - Association Franco-Ukrainienne de Tourves</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
 
     body {
       margin: 0;
-      font-family: 'Rubik', sans-serif;
+      font-family: 'Karla', sans-serif;
       background: #d9e9ff;
       color: #000;
       font-weight: 700;
     }
 
-    .sidebar {
+    .menu-icon {
       position: fixed;
       top: 20px;
       left: 20px;
-      background: #005bbb;
-      border-radius: 16px;
-      padding: 8px 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      width: 42px;
+      height: auto;
+      border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .hamburger span {
-      width: 18px;
-      height: 2.5px;
-      background: white;
-      border-radius: 2px;
-    }
-    .dots {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5px;
-    }
-    .dots span {
-      width: 5px;
-      height: 5px;
-      background: #ffd700;
-      border-radius: 50%;
     }
 
     .language {
@@ -63,6 +38,7 @@
       align-items: center;
       gap: 6px;
     }
+
     .language img {
       width: 18px;
       height: 12px;
@@ -80,13 +56,13 @@
     }
 
     .logo {
-      max-width: 300px;
+      max-width: 340px;
       height: auto;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       color: #003974;
     }
 
@@ -98,15 +74,18 @@
       border-radius: 16px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
+
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+
     .slides img {
       width: 900px;
       height: 500px;
       object-fit: cover;
     }
+
     .slider button {
       position: absolute;
       top: 50%;
@@ -118,9 +97,11 @@
       border-radius: 10px;
       cursor: pointer;
     }
+
     .prev {
       left: 10px;
     }
+
     .next {
       right: 10px;
     }
@@ -146,15 +127,8 @@
 </head>
 <body>
 
-  <!-- меню -->
-  <div class="sidebar">
-    <div class="dots">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
+  <!-- меню как картинка -->
+  <img class="menu-icon" src="image.png.jpg" alt="menu" />
 
   <!-- язык -->
   <div class="language">
@@ -162,11 +136,10 @@
     <span>FR ▾</span>
   </div>
 
-  <!-- блок с логотипом -->
+  <!-- центральный блок -->
   <div class="container">
     <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
     <p>Association Franco-Ukrainienne de Tourves</p>
-    <p>Bienvenue sur notre site officiel. Ce site est en construction.</p>
   </div>
 
   <!-- слайдер -->
@@ -201,3 +174,4 @@
 
 </body>
 </html>
+
