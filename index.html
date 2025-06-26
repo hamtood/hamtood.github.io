@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AFUT - Association Franco-Ukrainienne Tournesol</title>
+  <title>AFUT - Association Franco-Ukrainienne de Tourves</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap');
 
@@ -35,7 +35,7 @@
       background: #195d59;
       font-size: 17px;
       font-weight: 500;
-      color: #c9daed; /* ← ЦВЕТ ШРИФТА В КНОПКЕ CONTACTS */
+      color: #c9daed;
       border: 3px solid #195d59;
       border-radius: 8px;
       transition: all 0.3s ease-in-out;
@@ -53,7 +53,7 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -300px;
+      left: -300px; /* полностью вне экрана */
       width: 250px;
       height: 100%;
       background-color: #F8F8FF;
@@ -72,10 +72,9 @@
     }
 
     .sidebar button {
-      /* ↓ УМЕНЬШЕНО НА ЧУТЬ-ЧУТЬ (было 6px 16px) */
-      padding: 5px 12px; /* ← ИЗМЕНЕНИЕ */
+      padding: 6px 16px;
       background: #195d59;
-      font-size: 16px;   /* ← ИЗМЕНЕНИЕ: было 17px */
+      font-size: 17px;
       font-weight: 500;
       color: white;
       border: 3px solid #195d59;
@@ -240,7 +239,7 @@
 
     function showSlide() {
       const w = slides[0].clientWidth;
-      track.style.transform = `translateX(${-index * w}px)`;
+      track.style.transform = translateX(${-index * w}px);
     }
 
     function nextSlide() {
