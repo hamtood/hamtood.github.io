@@ -7,6 +7,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap');
 
+    /* Сброс и основной фон */
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
@@ -15,6 +16,7 @@
       font-weight: 700;
     }
 
+    /* Иконка меню */
     .menu-icon {
       position: fixed;
       top: 10px;
@@ -26,10 +28,11 @@
       z-index: 10;
     }
 
+    /* Кнопка Contacts */
     .contacts-btn {
       position: fixed;
-      top: 15px; /* чуть ниже меню */
-      left: 90px; /* справа от меню (70 + 10 + 10) */
+      top: 15px;    /* чуть ниже меню */
+      left: 90px;   /* справа от меню (70 + 10 + 10) */
       padding: 10px 25px;
       background: #fec195;
       font-size: 17px;
@@ -37,32 +40,25 @@
       color: #181818;
       border: 3px solid #fec195;
       border-radius: 8px;
-      box-shadow: 0 0 0 #fec1958c;
+      transition: all 0.3s ease-in-out;
       cursor: pointer;
       z-index: 10;
-      transition: all 0.3s ease-in-out;
+      overflow: hidden;
     }
-
     .contacts-btn:hover {
       background: transparent;
       color: #fec195;
       box-shadow: 0 0 25px #fec1958c;
     }
-
+    /* Статичные «звёздочки» внутри кнопки */
     .contacts-btn div {
       position: absolute;
       filter: drop-shadow(0 0 0 #fffdef);
-      z-index: -5;
-      transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+      z-index: -1;
+      transition: all 1s ease;
     }
 
-    .contacts-btn:hover .star-1 { top: -80%; left: -30%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .contacts-btn:hover .star-2 { top: -25%; left: 10%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .contacts-btn:hover .star-3 { top: 55%;  left: 25%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .contacts-btn:hover .star-4 { top: 30%;  left: 80%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .contacts-btn:hover .star-5 { top: 25%;  left: 115%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .contacts-btn:hover .star-6 { top: 5%;   left: 60%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-
+    /* Переключатель языка */
     .language {
       position: fixed;
       top: 20px;
@@ -77,35 +73,36 @@
       gap: 10px;
       z-index: 10;
     }
-
     .language img {
       width: 32px;
       height: 21px;
       border-radius: 4px;
     }
 
+    /* Центральный блок */
     .container {
       max-width: 900px;
       margin: 120px auto 40px auto;
-      background: #fff;
+      background: white;
       border-radius: 14px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       padding: 40px 50px;
       text-align: center;
     }
-
     .logo {
       max-width: 300px;
       height: auto;
       margin-bottom: 20px;
     }
-
-    p {
+    .container p {
       font-size: 1.6rem;
       color: #003974;
+      margin: 0;
     }
 
+    /* Адаптивный слайдер */
     .slider {
+      width: 100%;
       max-width: 900px;
       margin: 30px auto;
       position: relative;
@@ -113,18 +110,16 @@
       border-radius: 16px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
-
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
-
     .slides img {
-      width: 900px;
-      height: 500px;
+      width: 100%;
+      height: auto;
       object-fit: cover;
+      flex-shrink: 0;
     }
-
     .slider button {
       position: absolute;
       top: 50%;
@@ -137,15 +132,10 @@
       cursor: pointer;
       z-index: 10;
     }
+    .slider .prev { left: 10px; }
+    .slider .next { right: 10px; }
 
-    .prev {
-      left: 10px;
-    }
-
-    .next {
-      right: 10px;
-    }
-
+    /* Футер */
     footer {
       text-align: center;
       padding: 25px 0;
@@ -153,6 +143,7 @@
       font-weight: 600;
     }
 
+    /* Медиазапрос для мобильных */
     @media (max-width: 600px) {
       .container {
         margin: 100px 20px 30px 20px;
@@ -162,17 +153,79 @@
         width: 100vw;
         height: auto;
       }
+      .contacts-btn {
+        left: 85px;
+        padding: 8px 20px;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Меню -->
   <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" />
 
+  <!-- Кнопка Contacts -->
   <button class="contacts-btn">
     Contacts
-    <div class="star-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-5"><svg xmlns="http://www.w3.org/
+    <div class="star-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+  </button>
+
+  <!-- Переключатель языка -->
+  <div class="language">
+    <img src="https://flagcdn.com/fr.svg" alt="fr">
+    <span>FR ▾</span>
+  </div>
+
+  <!-- Центральный блок -->
+  <div class="container">
+    <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
+    <p>Association Franco-Ukrainienne de Tourves</p>
+  </div>
+
+  <!-- Слайдер -->
+  <div class="slider">
+    <div class="slides" id="slideTrack">
+      <img src="Снимок экрана 2025-06-25 195446.png" alt="poster2" />
+      <img src="Снимок экрана 2025-06-25 195558.png" alt="poster4" />
+      <img src="Снимок экрана 2025-06-25 195526.png" alt="poster3" />
+      <img src="Снимок экрана 2025-06-25 195331.png" alt="poster1" />
+    </div>
+    <button class="prev" onclick="prevSlide()">‹</button>
+    <button class="next" onclick="nextSlide()">›</button>
+  </div>
+
+  <!-- Футер -->
+  <footer>© 2025 AFUT — Tous droits réservés</footer>
+
+  <!-- Скрипт адаптивного слайдера -->
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const track = document.getElementById('slideTrack');
+
+    function showSlide() {
+      const w = slides[0].clientWidth;
+      track.style.transform = `translateX(${-index * w}px)`;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide();
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide();
+    }
+
+    window.addEventListener('resize', showSlide);
+  </script>
+</body>
+</html>
