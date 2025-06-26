@@ -53,8 +53,8 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -230px;
-      width: 230px;
+      left: -240px; /* полностью вне экрана */
+      width: 220px;
       height: 100%;
       background-color: #F8F8FF;
       box-shadow: 2px 0 10px rgba(0,0,0,0.2);
@@ -62,7 +62,7 @@
       padding-left: 15px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
       transition: left 0.3s ease;
       z-index: 1000;
     }
@@ -72,12 +72,12 @@
     }
 
     .sidebar button {
-      padding: 8px 20px;
-      background: steelblue;
-      font-size: 16px;
+      padding: 7px 18px;
+      background: #07284b;
+      font-size: 15px;
       font-weight: 500;
       color: white;
-      border: 3px solid steelblue;
+      border: 3px solid #07284b;
       border-radius: 8px;
       transition: all 0.3s ease-in-out;
       cursor: pointer;
@@ -86,8 +86,8 @@
 
     .sidebar button:hover {
       background: transparent;
-      color: steelblue;
-      box-shadow: 0 0 20px rgba(70,130,180,0.6);
+      color: #07284b;
+      box-shadow: 0 0 20px rgba(7, 40, 75, 0.6);
     }
 
     .language {
@@ -261,4 +261,3 @@
 
 </body>
 </html>
-
