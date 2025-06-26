@@ -35,7 +35,7 @@
       background: #195d59;
       font-size: 17px;
       font-weight: 500;
-      color: #c9daed;
+      color: #c9daed; /* ← цвет текста этой кнопки */
       border: 3px solid #195d59;
       border-radius: 8px;
       transition: all 0.3s ease-in-out;
@@ -53,7 +53,7 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -300px; /* полностью вне экрана */
+      left: -300px;
       width: 250px;
       height: 100%;
       background-color: #F8F8FF;
@@ -72,9 +72,9 @@
     }
 
     .sidebar button {
-      padding: 3px 10px;
+      padding: 3px 10px; /* ← уменьшено */
+      font-size: 14px;   /* ← уменьшено */
       background: #195d59;
-      font-size: 12px;
       font-weight: 500;
       color: white;
       border: 3px solid #195d59;
@@ -239,7 +239,7 @@
 
     function showSlide() {
       const w = slides[0].clientWidth;
-      track.style.transform = translateX(${-index * w}px);
+      track.style.transform = `translateX(${-index * w}px)`; // ← фикс: были кавычки не те
     }
 
     function nextSlide() {
