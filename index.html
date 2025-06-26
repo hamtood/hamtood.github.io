@@ -23,43 +23,8 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 20;
+      z-index: 1001;
       cursor: pointer;
-    }
-
-    .menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      z-index: 15;
-    }
-
-    .menu-overlay.active {
-      display: flex;
-    }
-
-    .menu-item {
-      background: white;
-      color: #003974;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .menu-item:hover {
-      background: #eee;
     }
 
     .contacts-btn {
@@ -75,11 +40,51 @@
       border-radius: 8px;
       transition: all 0.3s ease-in-out;
       cursor: pointer;
-      z-index: 10;
+      z-index: 1001;
       font-family: 'Rubik', sans-serif;
     }
 
     .contacts-btn:hover {
+      background: transparent;
+      color: #fec195;
+      box-shadow: 0 0 25px #fec1958c;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 260px;
+      height: 100%;
+      background-color: #F8F8FF;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+      padding-top: 100px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar button {
+      padding: 10px 25px;
+      background: #fec195;
+      font-size: 17px;
+      font-weight: 500;
+      color: #181818;
+      border: 3px solid #fec195;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    .sidebar button:hover {
       background: transparent;
       color: #fec195;
       box-shadow: 0 0 25px #fec1958c;
@@ -178,12 +183,10 @@
         margin: 100px 20px 30px 20px;
         padding: 30px 25px;
       }
-
       .slides img {
         width: 100vw;
         height: auto;
       }
-
       .contacts-btn {
         left: 85px;
         padding: 8px 20px;
@@ -193,15 +196,9 @@
   </style>
 </head>
 <body>
-  <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" onclick="toggleMenu()" />
 
-  <div class="menu-overlay" id="menuOverlay">
-    <div class="menu-item">Поддержать Украину</div>
-    <div class="menu-item">События</div>
-    <div class="menu-item">О нас</div>
-    <div class="menu-item">Поддержка</div>
-    <div class="menu-item">Контакты</div>
-  </div>
+  <!-- Меню и шторка -->
+  <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" onclick="toggleSidebar()" />
 
   <button class="contacts-btn">Contacts</button>
 
@@ -210,11 +207,21 @@
     <span>FR ▾</span>
   </div>
 
+  <div class="sidebar" id="sidebar">
+    <button>Поддержать Украину</button>
+    <button>События</button>
+    <button>О нас</button>
+    <button>Поддержка</button>
+    <button>Контакты</button>
+  </div>
+
+  <!-- Центральный контент -->
   <div class="container">
     <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
     <p>Association Franco-Ukrainienne de Tourves</p>
   </div>
 
+  <!-- Слайдер -->
   <div class="slider">
     <div class="slides" id="slideTrack">
       <img src="Снимок экрана 2025-06-25 195446.png" alt="poster2" />
@@ -229,10 +236,6 @@
   <footer>© 2025 AFUT — Tous droits réservés</footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('menuOverlay').classList.toggle('active');
-    }
-
     let index = 0;
     const slides = document.querySelectorAll('.slides img');
     const track = document.getElementById('slideTrack');
@@ -253,6 +256,11 @@
     }
 
     window.addEventListener('resize', showSlide);
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
   </script>
+
 </body>
 </html>
