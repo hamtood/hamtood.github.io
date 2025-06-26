@@ -10,23 +10,19 @@
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
-      background-color: #f0f0f0;
-      background-image: url('bbb0168313dff83a1a017dd37aa6ef93-removebg-preview.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
+      background: #f0f0f0;
       color: #000;
       font-weight: 700;
     }
 
     .menu-icon {
-     position: fixed;
-     top: 10px;    
-     left: 10px;   
-     width: 70px;
-     height: auto;
-     border-radius: 10px;
-     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 70px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .language {
@@ -53,13 +49,11 @@
     .container {
       max-width: 900px;
       margin: 120px auto 40px auto;
-      background: rgba(255, 255, 255, 0.9);
+      background: #fff;
       border-radius: 14px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       padding: 40px 50px;
       text-align: center;
-      position: relative;
-      z-index: 10;
     }
 
     .logo {
@@ -75,14 +69,13 @@
     }
 
     .slider {
+      width: 100%;
       max-width: 900px;
       margin: 30px auto;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
-      background: rgba(255, 255, 255, 0.9);
-      z-index: 10;
     }
 
     .slides {
@@ -91,9 +84,10 @@
     }
 
     .slides img {
-      width: 900px;
-      height: 500px;
+      width: 100%;
+      height: auto;
       object-fit: cover;
+      flex-shrink: 0;
     }
 
     .slider button {
@@ -106,7 +100,7 @@
       padding: 5px 15px;
       border-radius: 10px;
       cursor: pointer;
-      z-index: 11;
+      z-index: 1;
     }
 
     .prev {
@@ -122,9 +116,7 @@
       padding: 25px 0;
       color: #555;
       font-weight: 600;
-      position: relative;
-      z-index: 10;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.8);
       margin-top: 40px;
     }
 
@@ -132,10 +124,6 @@
       .container {
         margin: 100px 20px 30px 20px;
         padding: 30px 25px;
-      }
-      .slides img {
-        width: 100vw;
-        height: auto;
       }
     }
   </style>
@@ -147,13 +135,13 @@
 
   <!-- язык -->
   <div class="language">
-    <img src="https://flagcdn.com/fr.svg" alt="fr" />
+    <img src="https://flagcdn.com/fr.svg" alt="fr">
     <span>FR ▾</span>
   </div>
 
   <!-- центральный блок -->
   <div class="container">
-    <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo" />
+    <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
     <p>Association Franco-Ukrainienne de Tourves</p>
   </div>
 
@@ -173,27 +161,27 @@
 
   <script>
     let index = 0;
-    const totalSlides = 4;
+    const slides = document.querySelectorAll('.slides img');
+    const slideTrack = document.getElementById('slideTrack');
 
     function showSlide() {
-      const track = document.getElementById('slideTrack');
-      track.style.transform = `translateX(${-index * 900}px)`;
+      const slideWidth = slides[0].clientWidth;
+      slideTrack.style.transform = `translateX(${-index * slideWidth}px)`;
     }
 
     function nextSlide() {
-      index = (index + 1) % totalSlides;
+      index = (index + 1) % slides.length;
       showSlide();
     }
 
     function prevSlide() {
-      if (index === 0) {
-        index = totalSlides - 1;
-      } else {
-        index--;
-      }
+      index = (index - 1 + slides.length) % slides.length;
       showSlide();
     }
+
+    window.addEventListener('resize', showSlide);
   </script>
 
 </body>
 </html>
+
