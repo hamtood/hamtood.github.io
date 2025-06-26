@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
-      background: DimGrey;
+      background: DarkSlateGrey;
       color: #000;
       font-weight: 700;
     }
@@ -23,12 +23,13 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 10;
     }
 
-    .magic-button {
+    .contacts-btn {
       position: fixed;
-      top: 12px;
-      left: 90px;
+      top: 15px;
+      left: 95px;
       padding: 12px 35px;
       background: #fec195;
       font-size: 17px;
@@ -39,31 +40,28 @@
       box-shadow: 0 0 0 #fec1958c;
       transition: all 0.3s ease-in-out;
       cursor: pointer;
-      overflow: hidden;
+      z-index: 10;
     }
 
-    .magic-button svg {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      fill: #fffdef;
-      filter: drop-shadow(0 0 0 #fffdef);
-      z-index: -1;
-      transition: all 1s ease;
-    }
-
-    .magic-button:hover {
+    .contacts-btn:hover {
       background: transparent;
       color: #fec195;
       box-shadow: 0 0 25px #fec1958c;
     }
 
-    .magic-button:hover .star-1 { top: -80%; left: -30%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .magic-button:hover .star-2 { top: -25%; left: 10%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .magic-button:hover .star-3 { top: 55%; left: 25%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .magic-button:hover .star-4 { top: 30%; left: 80%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .magic-button:hover .star-5 { top: 25%; left: 115%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
-    .magic-button:hover .star-6 { top: 5%;  left: 60%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .contacts-btn div {
+      position: absolute;
+      filter: drop-shadow(0 0 0 #fffdef);
+      z-index: -5;
+      transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+    }
+
+    .contacts-btn:hover .star-1 { top: -80%; left: -30%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .contacts-btn:hover .star-2 { top: -25%; left: 10%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .contacts-btn:hover .star-3 { top: 55%;  left: 25%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .contacts-btn:hover .star-4 { top: 30%;  left: 80%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .contacts-btn:hover .star-5 { top: 25%;  left: 115%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .contacts-btn:hover .star-6 { top: 5%;   left: 60%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
 
     .language {
       position: fixed;
@@ -148,6 +146,10 @@
       font-weight: 600;
     }
 
+    .fil0 {
+      fill: #fffdef;
+    }
+
     @media (max-width: 600px) {
       .container {
         margin: 100px 20px 30px 20px;
@@ -165,15 +167,15 @@
   <!-- меню -->
   <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" />
 
-  <!-- contacts-кнопка -->
-  <button class="magic-button">
+  <!-- кнопка contacts -->
+  <button class="contacts-btn">
     Contacts
-    <svg class="star-1" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
-    <svg class="star-2" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
-    <svg class="star-3" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
-    <svg class="star-4" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
-    <svg class="star-5" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
-    <svg class="star-6" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
+    <div class="star-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
+    <div class="star-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
   </button>
 
   <!-- язык -->
@@ -182,7 +184,7 @@
     <span>FR ▾</span>
   </div>
 
-  <!-- центральный блок -->
+  <!-- центр -->
   <div class="container">
     <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
     <p>Association Franco-Ukrainienne de Tourves</p>
@@ -220,3 +222,4 @@
 
 </body>
 </html>
+
