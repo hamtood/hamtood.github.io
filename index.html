@@ -35,7 +35,7 @@
       background: #195d59;
       font-size: 17px;
       font-weight: 500;
-      color: #c9daed; /* ← цвет текста этой кнопки */
+      color: #c9daed;
       border: 3px solid #195d59;
       border-radius: 8px;
       transition: all 0.3s ease-in-out;
@@ -53,13 +53,13 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -300px;
-      width: 250px;
+      left: -270px; /* изменено с -300 на -270 (чтобы шторка выезжала на ширину 220px) */
+      width: 220px; /* уменьшена ширина шторки с 250px до 220px */
       height: 100%;
       background-color: #F8F8FF;
       box-shadow: 2px 0 10px rgba(0,0,0,0.2);
       padding-top: 100px;
-      padding-left: 6px;
+      padding-left: 12px; /* немного увеличил отступ слева для кнопок */
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -72,9 +72,9 @@
     }
 
     .sidebar button {
-      padding: 3px 10px; /* ← уменьшено */
-      font-size: 14px;   /* ← уменьшено */
+      padding: 7px 20px; /* увеличил padding, чтобы кнопки были больше */
       background: #195d59;
+      font-size: 15px; /* размер шрифта между исходным и уменьшенным */
       font-weight: 500;
       color: white;
       border: 3px solid #195d59;
@@ -239,7 +239,7 @@
 
     function showSlide() {
       const w = slides[0].clientWidth;
-      track.style.transform = `translateX(${-index * w}px)`; // ← фикс: были кавычки не те
+      track.style.transform = `translateX(${-index * w}px)`;
     }
 
     function nextSlide() {
