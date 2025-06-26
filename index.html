@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
-      background: #2F4F4F;
+      background: DimGrey;
       color: #000;
       font-weight: 700;
     }
@@ -25,6 +25,46 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
+    .magic-button {
+      position: fixed;
+      top: 12px;
+      left: 90px;
+      padding: 12px 35px;
+      background: #fec195;
+      font-size: 17px;
+      font-weight: 500;
+      color: #181818;
+      border: 3px solid #fec195;
+      border-radius: 8px;
+      box-shadow: 0 0 0 #fec1958c;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .magic-button svg {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      fill: #fffdef;
+      filter: drop-shadow(0 0 0 #fffdef);
+      z-index: -1;
+      transition: all 1s ease;
+    }
+
+    .magic-button:hover {
+      background: transparent;
+      color: #fec195;
+      box-shadow: 0 0 25px #fec1958c;
+    }
+
+    .magic-button:hover .star-1 { top: -80%; left: -30%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .magic-button:hover .star-2 { top: -25%; left: 10%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .magic-button:hover .star-3 { top: 55%; left: 25%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .magic-button:hover .star-4 { top: 30%; left: 80%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .magic-button:hover .star-5 { top: 25%; left: 115%; filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+    .magic-button:hover .star-6 { top: 5%;  left: 60%;  filter: drop-shadow(0 0 10px #fffdef); z-index: 2; }
+
     .language {
       position: fixed;
       top: 20px;
@@ -37,7 +77,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      z-index: 10;
     }
 
     .language img {
@@ -65,11 +104,9 @@
     p {
       font-size: 1.6rem;
       color: #003974;
-      margin: 0;
     }
 
     .slider {
-      width: 100%;
       max-width: 900px;
       margin: 30px auto;
       position: relative;
@@ -84,10 +121,9 @@
     }
 
     .slides img {
-      width: 100%;
-      height: auto;
+      width: 900px;
+      height: 500px;
       object-fit: cover;
-      flex-shrink: 0;
     }
 
     .slider button {
@@ -100,30 +136,26 @@
       padding: 5px 15px;
       border-radius: 10px;
       cursor: pointer;
-      z-index: 1;
     }
 
-    .prev {
-      left: 10px;
-    }
-
-    .next {
-      right: 10px;
-    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
 
     footer {
       text-align: center;
       padding: 25px 0;
-      color: #555;
+      color: #ccc;
       font-weight: 600;
-      background: rgba(255,255,255,0.8);
-      margin-top: 40px;
     }
 
     @media (max-width: 600px) {
       .container {
         margin: 100px 20px 30px 20px;
         padding: 30px 25px;
+      }
+      .slides img {
+        width: 100vw;
+        height: auto;
       }
     }
   </style>
@@ -132,6 +164,17 @@
 
   <!-- меню -->
   <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" />
+
+  <!-- contacts-кнопка -->
+  <button class="magic-button">
+    Contacts
+    <svg class="star-1" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
+    <svg class="star-2" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
+    <svg class="star-3" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
+    <svg class="star-4" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
+    <svg class="star-5" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
+    <svg class="star-6" viewBox="0 0 24 24"><path d="M12 0l3.5 7h7l-5.5 4.5L19 24l-7-5-7 5 2-12.5L1.5 7h7z"/></svg>
+  </button>
 
   <!-- язык -->
   <div class="language">
@@ -161,27 +204,19 @@
 
   <script>
     let index = 0;
-    const slides = document.querySelectorAll('.slides img');
-    const slideTrack = document.getElementById('slideTrack');
-
     function showSlide() {
-      const slideWidth = slides[0].clientWidth;
-      slideTrack.style.transform = `translateX(${-index * slideWidth}px)`;
+      const track = document.getElementById('slideTrack');
+      track.style.transform = `translateX(${-index * 900}px)`;
     }
-
     function nextSlide() {
-      index = (index + 1) % slides.length;
+      index = (index + 1) % 4;
       showSlide();
     }
-
     function prevSlide() {
-      index = (index - 1 + slides.length) % slides.length;
+      index = (index - 1 + 4) % 4;
       showSlide();
     }
-
-    window.addEventListener('resize', showSlide);
   </script>
 
 </body>
 </html>
-
