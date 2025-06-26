@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
-      background: DarkSlateGrey;
+      background: #f0f0f0;
       color: #000;
       font-weight: 700;
     }
@@ -28,9 +28,9 @@
 
     .contacts-btn {
       position: fixed;
-      top: 15px;
-      left: 95px;
-      padding: 12px 35px;
+      top: 15px; /* чуть ниже меню */
+      left: 90px; /* справа от меню (70 + 10 + 10) */
+      padding: 10px 25px;
       background: #fec195;
       font-size: 17px;
       font-weight: 500;
@@ -38,9 +38,9 @@
       border: 3px solid #fec195;
       border-radius: 8px;
       box-shadow: 0 0 0 #fec1958c;
-      transition: all 0.3s ease-in-out;
       cursor: pointer;
       z-index: 10;
+      transition: all 0.3s ease-in-out;
     }
 
     .contacts-btn:hover {
@@ -75,6 +75,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      z-index: 10;
     }
 
     .language img {
@@ -134,20 +135,22 @@
       padding: 5px 15px;
       border-radius: 10px;
       cursor: pointer;
+      z-index: 10;
     }
 
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
 
     footer {
       text-align: center;
       padding: 25px 0;
-      color: #ccc;
+      color: #555;
       font-weight: 600;
-    }
-
-    .fil0 {
-      fill: #fffdef;
     }
 
     @media (max-width: 600px) {
@@ -164,62 +167,12 @@
 </head>
 <body>
 
-  <!-- меню -->
   <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" />
 
-  <!-- кнопка contacts -->
   <button class="contacts-btn">
     Contacts
     <div class="star-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
     <div class="star-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
     <div class="star-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
     <div class="star-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path class="fil0" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-  </button>
-
-  <!-- язык -->
-  <div class="language">
-    <img src="https://flagcdn.com/fr.svg" alt="fr">
-    <span>FR ▾</span>
-  </div>
-
-  <!-- центр -->
-  <div class="container">
-    <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
-    <p>Association Franco-Ukrainienne de Tourves</p>
-  </div>
-
-  <!-- слайдер -->
-  <div class="slider">
-    <div class="slides" id="slideTrack">
-      <img src="Снимок экрана 2025-06-25 195446.png" alt="poster2" />
-      <img src="Снимок экрана 2025-06-25 195558.png" alt="poster4" />
-      <img src="Снимок экрана 2025-06-25 195526.png" alt="poster3" />
-      <img src="Снимок экрана 2025-06-25 195331.png" alt="poster1" />
-    </div>
-    <button class="prev" onclick="prevSlide()">‹</button>
-    <button class="next" onclick="nextSlide()">›</button>
-  </div>
-
-  <footer>© 2025 AFUT — Tous droits réservés</footer>
-
-  <script>
-    let index = 0;
-    function showSlide() {
-      const track = document.getElementById('slideTrack');
-      track.style.transform = `translateX(${-index * 900}px)`;
-    }
-    function nextSlide() {
-      index = (index + 1) % 4;
-      showSlide();
-    }
-    function prevSlide() {
-      index = (index - 1 + 4) % 4;
-      showSlide();
-    }
-  </script>
-
-</body>
-</html>
-
+    <div class="star-5"><svg xmlns="http://www.w3.org/
