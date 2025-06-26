@@ -7,7 +7,6 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap');
 
-    /* Сброс и основной фон */
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
@@ -16,7 +15,6 @@
       font-weight: 700;
     }
 
-    /* Иконка меню */
     .menu-icon {
       position: fixed;
       top: 10px;
@@ -25,14 +23,49 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 10;
+      z-index: 20;
+      cursor: pointer;
     }
 
-    /* Кнопка Contacts */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      z-index: 15;
+    }
+
+    .menu-overlay.active {
+      display: flex;
+    }
+
+    .menu-item {
+      background: white;
+      color: #003974;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .menu-item:hover {
+      background: #eee;
+    }
+
     .contacts-btn {
       position: fixed;
-      top: 25px;    /* чуть ниже меню */
-      left: 90px;   /* справа от меню (70 + 10 + 10) */
+      top: 25px;
+      left: 90px;
       padding: 10px 25px;
       background: #fec195;
       font-size: 17px;
@@ -43,23 +76,15 @@
       transition: all 0.3s ease-in-out;
       cursor: pointer;
       z-index: 10;
-      overflow: hidden;
       font-family: 'Rubik', sans-serif;
     }
+
     .contacts-btn:hover {
       background: transparent;
       color: #fec195;
       box-shadow: 0 0 25px #fec1958c;
     }
-    /* Статичные «звёздочки» внутри кнопки */
-    .contacts-btn div {
-      position: absolute;
-      filter: drop-shadow(0 0 0 #fffdef);
-      z-index: -1;
-      transition: all 1s ease;
-    }
 
-    /* Переключатель языка */
     .language {
       position: fixed;
       top: 20px;
@@ -74,13 +99,13 @@
       gap: 10px;
       z-index: 10;
     }
+
     .language img {
       width: 32px;
       height: 21px;
       border-radius: 4px;
     }
 
-    /* Центральный блок */
     .container {
       max-width: 900px;
       margin: 120px auto 40px auto;
@@ -90,18 +115,19 @@
       padding: 40px 50px;
       text-align: center;
     }
+
     .logo {
       max-width: 300px;
       height: auto;
       margin-bottom: 20px;
     }
+
     .container p {
       font-size: 1.6rem;
       color: #003974;
       margin: 0;
     }
 
-    /* Адаптивный слайдер */
     .slider {
       width: 100%;
       max-width: 900px;
@@ -111,16 +137,19 @@
       border-radius: 16px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
+
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+
     .slides img {
       width: 100%;
       height: auto;
       object-fit: cover;
       flex-shrink: 0;
     }
+
     .slider button {
       position: absolute;
       top: 50%;
@@ -133,10 +162,10 @@
       cursor: pointer;
       z-index: 10;
     }
+
     .slider .prev { left: 10px; }
     .slider .next { right: 10px; }
 
-    /* Футер */
     footer {
       text-align: center;
       padding: 25px 0;
@@ -144,16 +173,17 @@
       font-weight: 600;
     }
 
-    /* Медиазапрос для мобильных */
     @media (max-width: 600px) {
       .container {
         margin: 100px 20px 30px 20px;
         padding: 30px 25px;
       }
+
       .slides img {
         width: 100vw;
         height: auto;
       }
+
       .contacts-btn {
         left: 85px;
         padding: 8px 20px;
@@ -163,34 +193,28 @@
   </style>
 </head>
 <body>
+  <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" onclick="toggleMenu()" />
 
-  <!-- Меню -->
-  <img class="menu-icon" src="image.png-removebg-preview.png" alt="menu" />
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-item">Поддержать Украину</div>
+    <div class="menu-item">События</div>
+    <div class="menu-item">О нас</div>
+    <div class="menu-item">Поддержка</div>
+    <div class="menu-item">Контакты</div>
+  </div>
 
-  <!-- Кнопка Contacts -->
-  <button class="contacts-btn">
-    Contacts
-    <div class="star-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-    <div class="star-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53"><path fill="#fffdef" d="M392.05 0c-20.9 210.08-184.06 378.41-392.05 407.78 207.96 29.37 371.12 197.68 392.05 407.74 20.93-210.06 184.09-378.37 392.05-407.74-207.98-29.38-371.16-197.69-392.06-407.78z"/></svg></div>
-  </button>
+  <button class="contacts-btn">Contacts</button>
 
-  <!-- Переключатель языка -->
   <div class="language">
     <img src="https://flagcdn.com/fr.svg" alt="fr">
     <span>FR ▾</span>
   </div>
 
-  <!-- Центральный блок -->
   <div class="container">
     <img class="logo" src="472900477_122176437188125424_4907914911375063348_n-removebg-preview.png" alt="AFUT logo">
     <p>Association Franco-Ukrainienne de Tourves</p>
   </div>
 
-  <!-- Слайдер -->
   <div class="slider">
     <div class="slides" id="slideTrack">
       <img src="Снимок экрана 2025-06-25 195446.png" alt="poster2" />
@@ -202,11 +226,13 @@
     <button class="next" onclick="nextSlide()">›</button>
   </div>
 
-  <!-- Футер -->
   <footer>© 2025 AFUT — Tous droits réservés</footer>
 
-  <!-- Скрипт адаптивного слайдера -->
   <script>
+    function toggleMenu() {
+      document.getElementById('menuOverlay').classList.toggle('active');
+    }
+
     let index = 0;
     const slides = document.querySelectorAll('.slides img');
     const track = document.getElementById('slideTrack');
