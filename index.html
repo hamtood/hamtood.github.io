@@ -53,16 +53,16 @@
     .sidebar {
       position: fixed;
       top: 0;
-      left: -270px; /* изменено с -300 на -270 (чтобы шторка выезжала на ширину 220px) */
-      width: 235px; /* уменьшена ширина шторки с 250px до 220px */
+      left: -270px;
+      width: 235px;
       height: 90%;
-      background-color: #c9daed;
+      background-color: white;
       box-shadow: 2px 0 10px rgba(0,0,0,0.2);
       padding-top: 100px;
-      padding-left: 12px; /* немного увеличил отступ слева для кнопок */
+      padding-left: 12px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 8px;
       transition: left 0.3s ease;
       z-index: 1000;
     }
@@ -72,13 +72,13 @@
     }
 
     .sidebar button {
-      width: 211px; /* ← добавлено: кнопка уже ширины шторки */
-      margin: 12px; 
-      padding: 9px 22px; /* увеличил padding, чтобы кнопки были больше */
+      width: 200px;
+      margin: 6px; 
+      padding: 9px 22px;
       background: #6c7a89;
-      font-size: 17px; /* размер шрифта между исходным и уменьшенным */
+      font-size: 17px;
       font-weight: 500;
-      color: white;
+      color: #c9daed;
       border: 3px solid #6c7a89;
       border-radius: 8px;
       transition: all 0.3s ease-in-out;
