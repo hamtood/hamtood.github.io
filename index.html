@@ -54,7 +54,7 @@
       position: fixed;
       top: 0;
       left: -270px; /* изменено с -300 на -270 (чтобы шторка выезжала на ширину 220px) */
-      width: 250px; /* уменьшена ширина шторки с 250px до 220px */
+      width: 235px; /* уменьшена ширина шторки с 250px до 220px */
       height: 90%;
       background-color: #F8F8FF;
       box-shadow: 2px 0 10px rgba(0,0,0,0.2);
@@ -72,6 +72,8 @@
     }
 
     .sidebar button {
+      width: calc(100% - 24px); /* ← добавлено: кнопка уже ширины шторки */
+      margin: 0 auto; 
       padding: 7px 20px; /* увеличил padding, чтобы кнопки были больше */
       background: #195d59;
       font-size: 15px; /* размер шрифта между исходным и уменьшенным */
