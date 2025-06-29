@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacts - AFUT</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
     body {
       margin: 0;
-      font-family: 'Rubik', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: #F8F8FF;
       color: #000;
       font-weight: 700;
@@ -58,6 +58,30 @@
       transition: 0.3s ease;
     }
 
+    .menuButton span.top {
+      transform-origin: top left;
+    }
+    .menuButton span.mid {
+      transform-origin: center;
+    }
+    .menuButton span.bot {
+      transform-origin: bottom left;
+    }
+
+    .menuButton.active span.top {
+      transform: translateY(290%) rotate(45deg);
+      width: 40px;
+    }
+    .menuButton.active span.mid {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    .menuButton.active span.bot {
+      transform: translateY(-270%) rotate(-45deg);
+      width: 40px;
+      box-shadow: 0 0 10px #495057;
+    }
+
     .sidebar {
       position: fixed;
       top: 0;
@@ -103,7 +127,7 @@
 
     .container {
       max-width: 1000px;
-      margin: -235px auto 60px auto;
+      margin: -100px auto 60px auto;
       background: white;
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
@@ -128,14 +152,14 @@
       height: 32px;
     }
 
-   .emblem {
-  width: 220px; /* ← это значение можно чуть уменьшить или увеличить */
-  height: auto;
-  position: absolute;
-  top: 20px;    /* ← можно подогнать, чтобы не наехал на волну */
-  right: 20px;  /* ← можно подогнать, чтобы не прилипал к краю */
-  z-index: 2;
-}
+    .emblem {
+      width: 200px;
+      height: auto;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2;
+    }
 
     @media (max-width: 600px) {
       .container {
@@ -157,14 +181,14 @@
         position: static;
         margin: 20px auto 0;
         display: block;
-        width: 70px;
+        width: 120px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="menuButton" onclick="toggleSidebar()">
+  <div class="menuButton" onclick="toggleSidebar(this)">
     <span class="top"></span>
     <span class="mid"></span>
     <span class="bot"></span>
@@ -203,8 +227,10 @@
   </div>
 
   <script>
-    function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('open');
+    function toggleSidebar(button) {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+      button.classList.toggle('active');
     }
   </script>
 
