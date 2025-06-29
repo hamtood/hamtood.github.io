@@ -5,107 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacts - AFUT</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap');
-
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
       background: #F8F8FF;
       color: #000;
-      font-weight: 700;
     }
 
-    /* волна сверху */
-    .wave-container {
+    .wave-top {
       width: 100%;
-      overflow: hidden;
-      /* высота волны, подгони если нужно */
-      height: 220px;
-      background: url('tinified.png') no-repeat center bottom;
+      height: 200px; /* можно подкорректировать */
+      background: url('wave.png') no-repeat center top;
       background-size: cover;
-      position: relative;
     }
 
-    /* большой контейнер с контактами */
-    .contacts-container {
+    .container {
       max-width: 900px;
-      margin: -50px auto 40px auto; /* чтобы контейнер чуть заходил на волну снизу */
+      margin: 0 auto 40px auto;
       background: white;
       border-radius: 14px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      padding: 40px 30px 40px 80px; /* отступ слева для логотипов */
+      padding: 40px 50px;
+      box-sizing: border-box;
+      min-height: 400px; /* чтобы был побольше */
       display: flex;
       flex-direction: column;
-      gap: 25px;
-      box-sizing: border-box;
+      gap: 20px;
+      /* чтобы слева место под логотипы оставалось */
+      padding-left: 80px;
+      position: relative;
     }
 
+    /* пока логотипы не добавляем, просто отступ слева */
+    
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 15px;
-      font-size: 18px;
+      gap: 20px;
+      font-size: 1.2rem;
       color: #003974;
     }
 
-    /* место для логотипа (иконки) слева */
-    .contact-logo {
-      width: 30px;
-      height: 30px;
-      background: #6c7a89; /* временно для проверки */
-      border-radius: 6px;
-      flex-shrink: 0;
-    }
-
-    /* для текста контакта */
-    .contact-text {
-      flex-grow: 1;
-    }
-
-    /* адаптив */
-    @media (max-width: 600px) {
-      .contacts-container {
-        margin: -40px 20px 30px 20px;
-        padding: 30px 20px 30px 60px;
-      }
-      .contact-item {
-        font-size: 16px;
-        gap: 10px;
-      }
-      .contact-logo {
-        width: 24px;
-        height: 24px;
-      }
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      /* можно потом вставить сюда фон с иконками */
+      background-color: #6c7a89;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      user-select: none;
     }
   </style>
 </head>
 <body>
 
-  <div class="wave-container"></div>
+  <div class="wave-top"></div>
 
-  <div class="contacts-container">
+  <div class="container">
     <div class="contact-item">
-      <div class="contact-logo"></div>
-      <div class="contact-text">+33 1 23 45 67 89</div>
+      <div class="contact-icon">📞</div>
+      <div>+33 1 23 45 67 89</div>
     </div>
     <div class="contact-item">
-      <div class="contact-logo"></div>
-      <div class="contact-text">+33 6 12 34 56 78</div>
+      <div class="contact-icon">📞</div>
+      <div>+33 9 87 65 43 21</div>
     </div>
     <div class="contact-item">
-      <div class="contact-logo"></div>
-      <div class="contact-text">contact@afut.fr</div>
+      <div class="contact-icon">✉️</div>
+      <div>contact@afut.fr</div>
     </div>
     <div class="contact-item">
-      <div class="contact-logo"></div>
-      <div class="contact-text">facebook.com/afutpage</div>
+      <div class="contact-icon">📘</div>
+      <div><a href="https://www.facebook.com/afut" target="_blank" rel="noopener noreferrer">Facebook</a></div>
     </div>
     <div class="contact-item">
-      <div class="contact-logo"></div>
-      <div class="contact-text">tiktok.com/@afut</div>
+      <div class="contact-icon">🎵</div>
+      <div><a href="https://www.tiktok.com/@afut" target="_blank" rel="noopener noreferrer">TikTok</a></div>
     </div>
   </div>
 
 </body>
 </html>
-
