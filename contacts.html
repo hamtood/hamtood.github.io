@@ -14,51 +14,75 @@
 
     .wave-top {
       width: 100%;
-      height: 200px; /* можно подкорректировать */
-      background: url('wave.png') no-repeat center top;
+      height: 220px; /* чуть выше */
+      background: url('wave.png') no-repeat top center;
       background-size: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .container {
-      max-width: 900px;
-      margin: 0 auto 40px auto;
+      max-width: 1000px;
+      margin: 0 auto 50px auto;
       background: white;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      padding: 40px 50px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      padding: 50px 60px;
       box-sizing: border-box;
-      min-height: 400px; /* чтобы был побольше */
+      min-height: 450px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      /* чтобы слева место под логотипы оставалось */
-      padding-left: 80px;
+      gap: 24px;
+      padding-left: 90px; /* место слева под логотипы */
       position: relative;
     }
 
-    /* пока логотипы не добавляем, просто отступ слева */
-    
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 20px;
-      font-size: 1.2rem;
+      gap: 24px;
+      font-size: 1.3rem;
       color: #003974;
     }
 
     .contact-icon {
-      width: 36px;
-      height: 36px;
-      /* можно потом вставить сюда фон с иконками */
+      width: 40px;
+      height: 40px;
       background-color: #6c7a89;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
-      font-weight: bold;
-      font-size: 1.5rem;
+      font-weight: 700;
+      font-size: 1.6rem;
       user-select: none;
+      flex-shrink: 0;
+    }
+
+    a {
+      color: #003974;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        max-width: 90vw;
+        padding-left: 20px;
+        padding-right: 20px;
+        min-height: auto;
+      }
+      .contact-item {
+        font-size: 1.1rem;
+        gap: 16px;
+      }
+      .contact-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
