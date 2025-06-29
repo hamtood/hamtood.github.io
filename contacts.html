@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacts - AFUT</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Playfair Display', serif;
       background: #F8F8FF;
       color: #000;
-      font-weight: 700;
+      font-weight: 600;
       overflow-x: hidden;
     }
 
@@ -60,6 +60,7 @@
       background: #131313;
       border-radius: 100px;
       transition: 0.3s ease;
+      box-shadow: none;
     }
 
     .menuButton.active span.top {
@@ -70,7 +71,6 @@
     .menuButton.active span.bot {
       transform: translateY(-270%) rotate(-45deg);
       width: 40px;
-      box-shadow: 0 0 10px #495057;
     }
 
     .menuButton.active span.mid {
@@ -139,7 +139,7 @@
       display: flex;
       align-items: center;
       font-size: 1.4rem;
-      color: #003974;
+      color: #000;
       gap: 20px;
     }
 
@@ -149,7 +149,7 @@
     }
 
     .emblem {
-      width: 200px;
+      width: 400px;
       height: auto;
       position: absolute;
       top: 20px;
@@ -177,7 +177,7 @@
         position: static;
         margin: 20px auto 0;
         display: block;
-        width: 120px;
+        width: 160px;
       }
     }
   </style>
