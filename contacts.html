@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacts - AFUT</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background: #F8F8FF;
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* волна сверху */
+    .wave-container {
+      width: 100%;
+      overflow: hidden;
+      /* высота волны, подгони если нужно */
+      height: 220px;
+      background: url('tinified.png') no-repeat center bottom;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* большой контейнер с контактами */
+    .contacts-container {
+      max-width: 900px;
+      margin: -50px auto 40px auto; /* чтобы контейнер чуть заходил на волну снизу */
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 40px 30px 40px 80px; /* отступ слева для логотипов */
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      box-sizing: border-box;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 18px;
+      color: #003974;
+    }
+
+    /* место для логотипа (иконки) слева */
+    .contact-logo {
+      width: 30px;
+      height: 30px;
+      background: #6c7a89; /* временно для проверки */
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    /* для текста контакта */
+    .contact-text {
+      flex-grow: 1;
+    }
+
+    /* адаптив */
+    @media (max-width: 600px) {
+      .contacts-container {
+        margin: -40px 20px 30px 20px;
+        padding: 30px 20px 30px 60px;
+      }
+      .contact-item {
+        font-size: 16px;
+        gap: 10px;
+      }
+      .contact-logo {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wave-container"></div>
+
+  <div class="contacts-container">
+    <div class="contact-item">
+      <div class="contact-logo"></div>
+      <div class="contact-text">+33 1 23 45 67 89</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-logo"></div>
+      <div class="contact-text">+33 6 12 34 56 78</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-logo"></div>
+      <div class="contact-text">contact@afut.fr</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-logo"></div>
+      <div class="contact-text">facebook.com/afutpage</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-logo"></div>
+      <div class="contact-text">tiktok.com/@afut</div>
+    </div>
+  </div>
+
+</body>
+</html>
 
