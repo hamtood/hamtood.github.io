@@ -55,8 +55,10 @@
     .emblem {
       width: 64px;
       height: auto;
-      margin: 20px auto 10px;
-      display: block;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      z-index: 2;
     }
 
     @media (max-width: 600px) {
@@ -76,6 +78,9 @@
       }
 
       .emblem {
+        position: static;
+        margin: 20px auto 0;
+        display: block;
         width: 48px;
       }
     }
@@ -84,9 +89,9 @@
 <body>
 
   <img src="wave.png" alt="wave" class="wave-top">
-  <img src="depositphotos_56899625-stock-illustration-coat-of-arms-of-ukraine-removebg-preview.png" alt="Ukraine Emblem" class="emblem">
 
   <div class="container">
+    <img src="depositphotos_56899625-stock-illustration-coat-of-arms-of-ukraine-removebg-preview.png" alt="Ukraine Emblem" class="emblem">
     <div class="contact-item">
       <img src="png-transparent-computer-icons-mobile-phones-others-text-telephone-call-mobile-phones-thumbnail-removebg-preview.png" alt="phone">
       <span>+33 6 12 34 56 78</span>
@@ -102,10 +107,6 @@
     <div class="contact-item">
       <img src="facebook-new-removebg-preview.png" alt="facebook">
       <span>facebook.com/afut</span>
-    </div>
-    <div class="contact-item">
-      <img src="icons/tiktok.svg" alt="tiktok">
-      <span>@afut.tourves</span>
     </div>
   </div>
 
